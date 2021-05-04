@@ -8,12 +8,20 @@
           <%= f.label :name %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
-        <!-- 新規登録の画面へ、nameを送るフォームを追加 -->
 
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
+
+        <p>Postal code</p>
+          <%= f.text_field :postcode, id: "user_postcode" %>
+        <p>Prefecture code</p>
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+        <p>Ctiy</p>
+          <%= f.text_field :address_city, id:"user_address_city" %>
+        <p>Street</p>
+          <%= f.text_field :address_street, id: "user_addres_street" %>
 
         <div class="field">
           <%= f.label :password %>
@@ -30,7 +38,6 @@
 
         <div class="actions">
           <%= f.submit "Sign up", class: "btn btn-success btn-sm" %>
-          <!--ボタンの色、大きさを変更-->
         </div>
 
         <%= render "devise/shared/links" %>
