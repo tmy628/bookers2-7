@@ -36,7 +36,7 @@ class User < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
-  # ~.prefecture_nameで都道府県名を参照出来るようにする
+  # ~.prefecture_nameで都道府県名を参照できるようにする
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
